@@ -1,0 +1,20 @@
+<div class="">
+    <a [routerLink]="['quiz']" ><p class="play">Play</p></a>
+    <p *ngIf="last_game" style=" color: white; background-color: green;"> That was great, {{last_game.name}}! Your score is {{last_game.correct}}/ {{last_game.questions}} ({{last_game.percentage}})</p>
+    <p>Click the button above to start the trivia game.</p>
+
+    <table>
+      <thead>
+        <th>Name</th>
+        <th>Score</th>
+        <th>Percentage</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let game of games | search: search">
+          <td>{{game.name}}</td>
+          <td>{{game.correct}} / {{game.questions}}</td>
+          <td>{{game.percentage}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

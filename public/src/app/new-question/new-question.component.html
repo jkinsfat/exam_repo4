@@ -1,0 +1,21 @@
+<h1>New Question</h1>
+
+<form (submit)="createQuestion()">
+  <h3>Question:</h3>
+  <input required type="textarea" minlength="15" name="question" [(ngModel)]="question.question" #quest="ngModel">
+  <span *ngIf="quest.invalid && (quest.dirty || quest.touched)">Question must be at least 15 characters</span>
+
+  <h3>Correct Answer:</h3>
+  <input required type="text"  minlength="1" name="correct" value="" [(ngModel)]="question.correct" #cor="ngModel">
+  <span *ngIf="cor.invalid && (cor.dirty || cor.touched)">You must input an answer</span>
+
+  <h3>Fake Answer 1:</h3>
+  <input required type="text"  minlength="1" name="fake1" value="" [(ngModel)]="question.fake1" #f1="ngModel">
+  <span *ngIf="f1.invalid && (f1.dirty || f1.touched)">You must input an answer</span>
+
+  <h3>Fake Answer 2:</h3>
+  <input required type="text"  minlength="1" name="fake2" value="" [(ngModel)]="question.fake2" #f2="ngModel">
+  <span *ngIf="f2.invalid && (f2.dirty || f2.touched)">You must input an answer</span>
+  <button ng-disabled="(f2.invalid || f1.invalid || quest.invalid || cor.invalid)">Submit</button>
+  <span>{{error}}</span>
+</form>

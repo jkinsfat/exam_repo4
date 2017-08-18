@@ -1,0 +1,6 @@
+<nav *ngIf="show_nav">
+  <a [routerLink]="['home']">Home</a>
+  <a [routerLink]="['new_question']">Add a Question</a>
+  <a (click)="logOut()">Logout</a>
+</nav>
+<router-outlet></router-outlet>

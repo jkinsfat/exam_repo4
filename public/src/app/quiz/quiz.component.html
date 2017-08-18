@@ -1,0 +1,21 @@
+<p>Hi {{user_name}}! <br> Choose an answer for each of the question and submit the test once done. <br> Good luck!</p>
+<form class="" action="index.html" method="post">
+  <div *ngFor="let question of questions; let i = index">
+    <p>{{question.question}}</p>
+    <label>
+      <input type="radio" name="question{{i}}" value="correct" [(ngModel)]="user_answers[question._id]">
+      {{question.correct}}
+    </label><br>
+    <label>
+      <input type="radio" name="question{{i}}" value="fake1" [(ngModel)]="user_answers[question._id]">
+      {{question.fake1}}
+    </label><br>
+    <label>
+      <input type="radio" name="question{{i}}" value="fake2" [(ngModel)]="user_answers[question._id]">
+      {{question.fake2}}
+    </label><br>
+  </div>
+  <button (click)="cancelQuiz()">Cancel</button>
+  <button (click)="submitQuiz()">Submit</button>
+</form>
+{{user_answers | json}}

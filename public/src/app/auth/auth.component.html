@@ -1,0 +1,16 @@
+
+<h1>Welcome to the Great Trivia Game!</h1>
+<h2>Log In To Play!</h2>
+<form name="form"(submit)="login()">
+  <input [(ngModel)]="user_name" required minlength="3" type="text" name="user_name" placeholder="Username" #name="ngModel">
+  <button ng-disabled="name.invalid">Submit</button>
+  <span *ngIf="name.invalid && (name.dirty || name.touched)">User Name must be at least three characters</span>
+</form>
+
+<!-- <h2>Register</h2>
+<form (submit)="register()">
+  <input [(ngModel)]="reg_user.name" type="text" name="name" placeholder="email">
+  <input [(ngModel)]="reg_user.password" type="password" name="password" placeholder="password">
+  <input type="submit" name="submit" value="Register">
+  <span>{{reg_error}}</span>
+</form> -->
